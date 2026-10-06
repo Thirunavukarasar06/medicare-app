@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary-teal: #147A6B;
+  --primary-dark: #112F30;
+  --primary-light: #E6F2F0;
+  
+  /* Backgrounds & Borders */
+  --bg-main: #F8FAFC;
+  --bg-sidebar: #1E293B;
+  --border-color: #E2E8F0;
+  --white: #FFFFFF;
+  
+  /* Text Colors */
+  --text-dark: #0F172A;
+  --text-muted: #64748B;
+  
+  /* Status Colors */
+  --status-upcoming: #3B82F6;
+  --status-completed: #10B981;
+  --status-cancelled: #EF4444;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+}
+
+h1, h2, h3, h4, .serif-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Reusable Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-teal);
+}
+
+.error-message {
+  color: var(--status-cancelled);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-teal);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-primary:disabled {
+  background-color: var(--text-muted);
+  cursor: not-allowed;
+}

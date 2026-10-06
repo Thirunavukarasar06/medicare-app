@@ -1,0 +1,31 @@
+<div class="page-container">
+  <header class="page-header" style="margin-bottom: 2rem;">
+    <h1 class="serif-heading">Prescriptions</h1>
+  </header>
+
+  <div class="prescriptions-list">
+    <div class="presc-card" *ngFor="let p of prescriptions">
+      <div class="card-top">
+        <div class="doc-info">
+          <div class="icon-doc">📄</div>
+          <div>
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.doctor }}</p>
+            <p>📅 {{ p.date }}</p>
+            <div class="pills-container">
+              <span class="pill" *ngFor="let med of p.meds">{{ med }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn-outline">👁 View Full</button>
+          <button class="btn-outline">↓ PDF</button>
+        </div>
+      </div>
+      <div class="card-bottom">
+        <div class="follow-up">🔔 Follow-up: {{ p.followUp }}</div>
+        <button class="btn-sm-primary">Book Follow-up</button>
+      </div>
+    </div>
+  </div>
+</div>

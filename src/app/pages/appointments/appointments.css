@@ -1,0 +1,35 @@
+.filters-bar { display: flex; gap: 0.75rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; }
+.filters-bar button {
+  background: white; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 20px;
+  cursor: pointer; font-size: 0.875rem; display: flex; align-items: center; gap: 0.5rem; font-family: 'Inter', sans-serif; transition: all 0.2s;
+}
+.filters-bar button .count { background: var(--bg-main); padding: 0.1rem 0.4rem; border-radius: 10px; font-size: 0.75rem; }
+.filters-bar button.active { background: var(--primary-teal); color: white; border-color: var(--primary-teal); }
+.filters-bar button.active .count { background: rgba(255,255,255,0.2); }
+
+.appointments-list { display: flex; flex-direction: column; gap: 1rem; }
+.appointment-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 1rem; }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.doc-profile { display: flex; gap: 1rem; }
+.avatar-medium { background: var(--primary-teal); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.1rem; }
+.doc-name-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem; }
+.doc-name-row h4 { margin: 0; font-size: 1.1rem; }
+.specialty { margin: 0; font-size: 0.875rem; color: var(--text-muted); }
+
+.status-badge { padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 0.25rem; }
+.status-badge.completed { background: #ECFDF5; color: var(--status-completed); border: 1px solid #A7F3D0; }
+.status-badge.upcoming { background: #EFF6FF; color: var(--status-upcoming); border: 1px solid #BFDBFE; }
+.status-badge.cancelled { background: #FEF2F2; color: var(--status-cancelled); border: 1px solid #FECACA; }
+
+.price-action { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
+.price { font-weight: 600; font-size: 1.1rem; }
+.actions { display: flex; gap: 0.5rem; }
+.btn-outline { background: transparent; border: 1px solid var(--border-color); padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.75rem; cursor: pointer; color: var(--text-dark); transition: background 0.2s; }
+.btn-outline:hover { background: var(--bg-main); }
+.btn-outline.danger { color: var(--status-cancelled); border-color: #FECACA; }
+.btn-outline.danger:hover { background: #FEF2F2; }
+
+.card-details { display: flex; gap: 2rem; font-size: 0.875rem; color: var(--text-muted); padding-top: 1rem; border-top: 1px solid var(--border-color); }
+.card-note { background: var(--bg-main); padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.875rem; color: var(--text-muted); }
+.card-note strong { color: var(--text-dark); }

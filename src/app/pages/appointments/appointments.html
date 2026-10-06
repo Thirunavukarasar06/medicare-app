@@ -1,0 +1,71 @@
+<div class="page-container">
+  <header class="page-header">
+    <div>
+      <h1 class="serif-heading">Appointments</h1>
+      <p class="date-subtitle">{{ currentDate | date:'EEEE, d MMMM yyyy' }}</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn-primary">+ Book Appointment</button>
+      <div class="notification-bell">🔔</div>
+      <div class="avatar-small">PM</div>
+    </div>
+  </header>
+
+  <!-- Filter Pills -->
+  <div class="filters-bar">
+    <button [class.active]="activeFilter === 'All'" (click)="setFilter('All')">
+      All <span class="count">{{ getCount('All') }}</span>
+    </button>
+    <button [class.active]="activeFilter === 'Upcoming'" (click)="setFilter('Upcoming')">
+      Upcoming <span class="count">{{ getCount('Upcoming') }}</span>
+    </button>
+    <button [class.active]="activeFilter === 'Completed'" (click)="setFilter('Completed')">
+      Completed <span class="count">{{ getCount('Completed') }}</span>
+    </button>
+    <button [class.active]="activeFilter === 'Cancelled'" (click)="setFilter('Cancelled')">
+      Cancelled <span class="count">{{ getCount('Cancelled') }}</span>
+    </button>
+  </div>
+
+  <!-- Appointments List -->
+  <div class="appointments-list">
+    <div class="appointment-card" *ngFor="let apt of filteredAppointments">
+      
+      <div class="card-top">
+        <div class="doc-profile">
+          <div class="avatar-medium">{{ apt.initials }}</div>
+          <div>
+            <div class="doc-name-row">
+              <h4>{{ apt.doctor }}</h4>
+              <span class="status-badge" [ngClass]="apt.status.toLowerCase()">
+                <span *ngIf="apt.status === 'Completed'">✓</span>
+                <span *ngIf="apt.status === 'Upcoming'">🕒</span>
+                <span *ngIf="apt.status === 'Cancelled'">⊗</span>
+                {{ apt.status }}
+              </span>
+            </div>
+            <p class="specialty">{{ apt.specialty }}</p>
+          </div>
+        </div>
+        <div class="price-action">
+          <span class="price">{{ apt.price }}</span>
+          <div class="actions">
+            <button class="btn-outline" *ngIf="apt.status === 'Completed'">👁 Prescription</button>
+            <button class="btn-outline" *ngIf="apt.status === 'Upcoming'">↻ Reschedule</button>
+            <button class="btn-outline danger" *ngIf="apt.status === 'Upcoming'">⊗ Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-details">
+        <span>📅 {{ apt.date }}</span>
+        <span>🕒 {{ apt.time }}</span>
+        <span>📍 {{ apt.location }}</span>
+      </div>
+
+      <div class="card-note" *ngIf="apt.note">
+        <strong>Notes:</strong> {{ apt.note }}
+      </div>
+    </div>
+  </div>
+</div>

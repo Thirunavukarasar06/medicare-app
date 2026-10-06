@@ -1,0 +1,46 @@
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo"><span class="heart-icon">♡</span> MediCare</div>
+      
+      <div class="user-profile" *ngIf="currentUser$ | async as user">
+        <div class="avatar">{{ user.initials }}</div>
+        <div class="user-info">
+            <span class="name">{{ user.name }}</span>
+            <span class="id">{{ user.id }}</span>
+        </div>
+      </div>
+    </div> <!-- THIS WAS THE MISSING TAG! -->
+
+    <nav class="nav-links">
+      <a routerLink="/dashboard" routerLinkActive="active-link">
+        <i>⌂</i> Overview
+      </a>
+      <a routerLink="/appointments" routerLinkActive="active-link">
+        <i>📅</i> Appointments 
+        <span class="badge" *ngIf="(appointmentCount$ | async) as count">{{ count }}</span>
+      </a>
+      <a routerLink="/doctors" routerLinkActive="active-link">
+        <i>🩺</i> Find Doctors
+      </a>
+      <a routerLink="/prescriptions" routerLinkActive="active-link">
+        <i>💊</i> Prescriptions
+      </a>
+      <a routerLink="/payments" routerLinkActive="active-link">
+        <i>💳</i> Payments <span class="badge">2</span>
+      </a>
+      <a routerLink="/reminders" routerLinkActive="active-link">
+        <i>🔔</i> Reminders <span class="badge">2</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="/login" class="sign-out"><i>🚪</i> Sign Out</a>
+    </div>
+  </aside>
+
+  <!-- The changing pages will load inside this outlet -->
+  <main class="main-content">
+    <router-outlet></router-outlet> 
+  </main>
+</div>

@@ -1,0 +1,50 @@
+.page-container { max-width: 1200px; margin: 0 auto; }
+
+.page-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
+.page-header h1 { margin: 0; font-size: 1.5rem; }
+.date-subtitle { color: var(--text-muted); margin: 0.25rem 0 0 0; font-size: 0.875rem; }
+
+.header-actions { display: flex; align-items: center; gap: 1rem; }
+.notification-bell { color: var(--text-muted); font-size: 1.2rem; cursor: pointer; }
+.avatar-small { background: var(--primary-teal); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; }
+
+.welcome-banner { background: var(--primary-teal); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem; }
+.greeting { margin: 0 0 0.5rem 0; opacity: 0.9; }
+.patient-name { font-size: 2rem; margin: 0 0 1rem 0; }
+.patient-badges { display: flex; gap: 1.5rem; font-size: 0.875rem; opacity: 0.9; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.stat-card { background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); }
+.icon-wrapper { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem; }
+.icon-wrapper.upcoming { background: #E0F2FE; color: #0284C7; }
+.icon-wrapper.pending { background: #FEF3C7; color: #D97706; }
+.icon-wrapper.prescr { background: #F3E8FF; color: #9333EA; }
+.icon-wrapper.payment { background: #FFEDD5; color: #EA580C; }
+.stat-card h3 { margin: 0; font-size: 1.5rem; }
+.stat-label { margin: 0.25rem 0; font-size: 0.875rem; font-weight: 500; }
+.stat-sub { margin: 0; font-size: 0.75rem; color: var(--text-muted); }
+
+.content-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.card-section { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.section-header h3 { margin: 0; font-size: 1.1rem; }
+.view-all { color: var(--primary-teal); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+
+.list-container { display: flex; flex-direction: column; gap: 1rem; }
+.list-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--bg-main); border-radius: 8px; }
+.item-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.item-icon.apt-icon { background: #E0F2FE; }
+.item-icon.rem-icon { background: #FEF3C7; }
+.item-details h4 { margin: 0 0 0.25rem 0; font-size: 0.9rem; }
+.item-details .specialty { margin: 0 0 0.5rem 0; font-size: 0.8rem; color: var(--text-muted); }
+.item-details .date-time { margin: 0; font-size: 0.8rem; font-weight: 500; }
+.overdue-text { margin: 0; font-size: 0.8rem; color: var(--status-cancelled); font-weight: 500; }
+
+.status-badge { padding: 0.25rem 0.5rem; border-radius: 20px; font-size: 0.75rem; font-weight: 500; margin-left: auto; }
+.status-badge.upcoming { background: #EFF6FF; color: var(--status-upcoming); border: 1px solid #BFDBFE; }
+
+.patient-info-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); }
+.patient-info-card h3 { margin: 0 0 1.5rem 0; font-size: 1.1rem; }
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.info-block label { font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem; }
+.info-block p { margin: 0; font-size: 0.875rem; font-weight: 500; }

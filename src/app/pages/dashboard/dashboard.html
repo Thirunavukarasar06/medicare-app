@@ -1,0 +1,125 @@
+<div class="page-container">
+  <!-- Page Header -->
+  <header class="page-header">
+    <div>
+      <h1 class="serif-heading">Overview</h1>
+      <p class="date-subtitle">{{ currentDate | date:'EEEE, d MMMM yyyy' }}</p>
+    </div>
+    <div class="header-actions" *ngIf="currentUser$ | async as user">
+      <button class="btn-primary">+ Book Appointment</button>
+      <div class="notification-bell">🔔</div>
+      <!-- Dynamic Avatar initials in top right -->
+      <div class="avatar-small">{{ user.initials }}</div> 
+    </div>
+  </header>
+
+  <!-- Welcome Banner (Dynamic user data) -->
+  <section class="welcome-banner" *ngIf="currentUser$ | async as user">
+    <p class="greeting">Good morning,</p>
+    <h2 class="serif-heading patient-name">{{ user.name }}</h2>
+    <div class="patient-badges">
+      <span>🛡 ID: {{ user.id }}</span>
+      <span>♡ Blood Group: {{ user.bloodGroup }}</span>
+      <span>📞 {{ user.phone }}</span>
+    </div>
+  </section>
+
+  <!-- Stats Grid -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="icon-wrapper upcoming">📅</div>
+      <h3>5</h3>
+      <p class="stat-label">Total Appointments</p>
+      <p class="stat-sub">2 completed</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon-wrapper pending">🕒</div>
+      <h3>2</h3>
+      <p class="stat-label">Upcoming</p>
+      <p class="stat-sub">Scheduled visits</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon-wrapper prescr">💊</div>
+      <h3>2</h3>
+      <p class="stat-label">Prescriptions</p>
+      <p class="stat-sub">Active records</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon-wrapper payment">💳</div>
+      <h3>2</h3>
+      <p class="stat-label">Pending Payments</p>
+      <p class="stat-sub">₹1,800 due</p>
+    </div>
+  </section>
+
+  <!-- Main Content Grid -->
+  <div class="content-grid-2">
+    <!-- Upcoming Appointments -->
+    <section class="card-section">
+      <div class="section-header">
+        <h3>Upcoming Appointments</h3>
+        <a routerLink="/appointments" class="view-all">All ></a>
+      </div>
+      <div class="list-container">
+        <div class="list-item" *ngFor="let apt of upcomingAppointments">
+          <div class="item-icon apt-icon">🩺</div>
+          <div class="item-details">
+            <h4>{{ apt.doctor }}</h4>
+            <p class="specialty">{{ apt.specialty }}</p>
+            <p class="date-time">📅 {{ apt.date }}</p>
+          </div>
+          <span class="status-badge upcoming">🕒 Upcoming</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Active Reminders -->
+    <section class="card-section">
+      <div class="section-header">
+        <h3>Active Reminders</h3>
+        <a routerLink="/reminders" class="view-all">View all ></a>
+      </div>
+      <div class="list-container">
+        <div class="list-item reminder-item" *ngFor="let rem of activeReminders">
+          <div class="item-icon rem-icon">🔔</div>
+          <div class="item-details">
+            <h4>{{ rem.title }}</h4>
+            <p class="specialty">{{ rem.desc }}</p>
+            <p class="overdue-text">Overdue · {{ rem.overdue }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Patient Information Bottom Card (Dynamic user data) -->
+  <section class="patient-info-card" *ngIf="currentUser$ | async as user">
+    <h3>Patient Information</h3>
+    <div class="info-grid">
+      <div class="info-block">
+        <label>👤 Full Name</label>
+        <p>{{ user.name }}</p>
+      </div>
+      <div class="info-block">
+        <label>✉️ Email</label>
+        <p>{{ user.email }}</p>
+      </div>
+      <div class="info-block">
+        <label>📞 Phone</label>
+        <p>{{ user.phone }}</p>
+      </div>
+      <div class="info-block">
+        <label>📅 Date of Birth</label>
+        <p>{{ user.dob }}</p> 
+      </div>
+      <div class="info-block">
+        <label>♡ Blood Group</label>
+        <p>{{ user.bloodGroup }}</p>
+      </div>
+      <div class="info-block">
+        <label>📍 Address</label>
+        <p>{{ user.address }}</p>
+      </div>
+    </div>
+  </section>
+</div>
